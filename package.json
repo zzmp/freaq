@@ -1,0 +1,28 @@
+{
+  "name": "freaq",
+  "version": "0.0.0",
+  "description": "An audio visualizer bookmarklet",
+  "main": "freaq.min.js",
+  "scripts": {
+    "start": "r.js -o build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzmp/freaq.git"
+  },
+  "keywords": [
+    "audio",
+    "visualizer",
+    "bookmarklet"
+  ],
+  "author": "Zach Pomerantz <zmp@umich.edu> (http://garabagne.io/)",
+  "license": "MITs",
+  "bugs": {
+    "url": "https://github.com/zzmp/freaq/issues"
+  },
+  "homepage": "https://github.com/zzmp/freaq",
+  "dependencies": {
+    "pown": "0.0.0"
+  }
+}
