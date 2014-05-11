@@ -6,20 +6,10 @@ define(['../shim'],function(shim) {
     this.el = document.createElement('canvas');
     this.style.cssText = "left: 0; top: 0; width: 100%; height: 100%;";
     this.isPaused = false;
-  };
 
-  // Register media listeners
-  Visualizer.prototype.attach = function(el) {
-    el.appendChild(this.el);
+    // Register media listeners
     this.context.on('play', this.play.bind(this));
     this.context.on('pause', this.pause.bind(this));
-  };
-
-  // Avoid computation when not displaying canvas
-  Visualizer.prototype.detach = function(el) {
-    this.context.off('play');
-    this.context.off('pause');
-    el.removeChild(this.el);
   };
 
   // Boot visualization
