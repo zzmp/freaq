@@ -3,7 +3,7 @@ define(['Model/Context', 'Model/UX', 'View/Mirror'],
   console.log('freaq out!');
 
   var context = new Context(document.querySelector('video'));
-  var ux = new UX();
+  var ux = new UX(context);
 
   var freaq = new Mirror(context, ux);
   window.freaq = freaq;
