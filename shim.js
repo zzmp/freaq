@@ -5,11 +5,11 @@ define(function () {
                   window.mozAudioContext                      || 
                   window.oAudioContext                        ||
                   window.msAudioContext,
-    requestAnimationFrame: window.requestAnimationFrame       || 
-                           window.webkitRequestAnimationFrame || 
-                           window.mozRequestAnimationFrame    || 
-                           window.oRequestAnimationFrame      || 
-                           window.msRequestAnimationFrame     ||
+    requestAnimationFrame: window.requestAnimationFrame.bind(window)       || 
+                           window.webkitRequestAnimationFrame.bind(window) || 
+                           window.mozRequestAnimationFrame.bind(window)    || 
+                           window.oRequestAnimationFrame.bind(window)      || 
+                           window.msRequestAnimationFrame.bind(window)     ||
                            function (callback) {
                              window.setTimeout(callback, 1000 / 17);
                            },

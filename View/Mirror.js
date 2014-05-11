@@ -1,4 +1,4 @@
-define(['./Min', './Max', '../shim'], function(Min, Max, shim) {
+define(['./Visualizer', './Min', './Max', '../shim'], function(Visualizer, Min, Max, shim) {
   var Mirror = function(context, ux) {
     var vis = this.visualizer = new Visualizer(context, ux);
     var max = this.max = new Max(ux);

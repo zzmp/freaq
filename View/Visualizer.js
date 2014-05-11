@@ -1,15 +1,15 @@
 define(['../shim'],function(shim) {
   var Visualizer = function(context, ux) {
-    this.analyser = context.analyser;
+    this.analyser = context.get('analyser');
     this.ux = ux;
     // Set up canvas
     this.el = document.createElement('canvas');
-    this.style.cssText = "left: 0; top: 0; width: 100%; height: 100%;";
+    this.el.style.cssText = "left: 0; top: 0; width: 100%; height: 100%;";
     this.isPaused = false;
 
     // Register media listeners
-    this.context.on('play', this.play.bind(this));
-    this.context.on('pause', this.pause.bind(this));
+    context.on('play', play.bind(this));
+    context.on('pause', pause.bind(this));
   };
 
   // Boot visualization

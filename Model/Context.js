@@ -15,7 +15,7 @@ define(['../node_modules/pown/pown', '../shim'], function(pown, shim) {
     // Cache filter ranges
     var freqBase = loFilter.frequency.minValue;
     var gainBase = loFilter.gain.minValue;
-    var freqRange = loFilter.frequency.maxValue - loFreqBase;
+    var freqRange = loFilter.frequency.maxValue - freqBase;
     var gainRange = loFilter.gain.maxValue - gainBase;
 
     // Register analyser/filter listeners

@@ -1,6 +1,6 @@
 define(function() {
   var Min = function(ux) {
-    var toolbar = document.createElement('div');
+    this.toolbar = document.createElement('div');
   };
 
   Min.prototype.attach = function(el) {
@@ -12,7 +12,7 @@ define(function() {
       container.removeChild(container.firstElementChild);
 
     // Fill container with freaqy stuff
-    container.appendChild(toolbar);
+    container.appendChild(this.toolbar);
     container.appendChild(el);
   };
 
