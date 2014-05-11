@@ -9,7 +9,9 @@ define(['./Visualizer', './Min', './Max', '../shim'], function(Visualizer, Min, 
 
     // Persist through multiple songs
     context.on('loadstart', function() {
-      ux.get('fullscreen') ? max.attach(vis.el) : min.attach(vis.el);
+      window.setTimeout(function() {
+        ux.get('fullscreen') ? max.attach(vis.el) : min.attach(vis.el);
+      }, 1000 / 24); // load in a blink, but wait for ads
     });
 
     // Register listener for freaqy fullscreen change
