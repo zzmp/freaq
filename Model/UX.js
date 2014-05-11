@@ -7,31 +7,36 @@ define(['../node_modules/pown/pown'], function(pown) {
       // UX exposure
       switch (p) {
         case 'hue': // 0 <= val <= 256
-          if (n >= 0 || n <= 256)
-            this.hue = Math.floor(n) % 256;
-          return;
+          if (n < 0 || n > 256) return;
+          n = Math.floor(n) % 256;
+          break;
         case 'rainbow': // -1, 0, 1
-          if (n === -1 || n === 0 || n === 1)
-            this.rainbow = n;
+          if (n !== -1 && n !== 0 && n !== 1) return;
+        case 'fullscreen':
+          break;
+        default:
+
+          // Context exposure
+          switch (p) {
+            case 'smooth': // 0 <= val <= 1
+              if (n < 0 || n > 1) return;
+              break;
+            case 'fft': // 32 <= val <= 2048
+              if (n < 32 || n > 2048) return;
+              if ( n | (n - 1) ) return;
+              break;
+            case 'loFreq':
+            case 'hiFreq':
+            case 'loGain':
+            case 'hiGain':
+              if (n < 0 || n > 1) return;
+            default:
+              return;
+          }
+          context.set(p, n);
           return;
       }
-
-      // Context exposure
-      switch (p) {
-        case 'smooth': // 0 <= val <= 1
-          if (n < 0 || n > 1) return;
-          break;
-        case 'fft': // 32 <= val <= 2048
-          if (n < 32 || n > 2048) return;
-          if ( n | (n - 1) ) return;
-          break;
-        case 'loFreq':
-        case 'hiFreq':
-        case 'loGain':
-        case 'hiGain':
-          if (n < 0 || n > 1) return;
-      }
-      context.set(opt.p, n);
+      this.set(p, n);
     });
 
     // Initialize colors
