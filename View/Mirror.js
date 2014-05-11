@@ -12,11 +12,12 @@ define(['Min', 'Max', '../shim'], function(Min, Max, shim) {
       ux.get('fullscreen') ? max.attach(vis.el) : min.attach(vis.el);
     });
 
-    var maxScreen = maximize.bind(this);
-    var minScreen = minimize.bind(this);
-    shim.onfullscreenchange(function() {
-      ux.get('fullscreen') ? maxScreen() : miniScreen();
-    }, false);
+    // Register listener for freaqy fullscreen change
+    ux.on('change', function(ctx, obj) {
+      if (obj.p === 'fullscreen') {
+        obj.n ? maximize.bind(this) : minimize.bind(this);
+      }
+    });
   };
 
   var maximize = function() {
