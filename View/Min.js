@@ -38,6 +38,10 @@ define(function() {
   };
 
   Min.prototype.detach = function(el) {
+    var container =
+      document.getElementById('watch7-sidebar-ads'); // Youtube-dependent
+
+    // Clear container
     while (container.children.length)
       container.removeChild(container.firstElementChild);
   };
