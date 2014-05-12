@@ -19,14 +19,14 @@ define(function () {
     },
     exitFullscreen: function() {
       var exitFullscreen = document.exitFullscreen       ||
-                           document.webkitExitFullScreen ||
+                           document.webkitExitFullscreen ||
                            document.mozCancelFullScreen  ||
                            document.msExitFullScreen;
       exitFullscreen.call(document);
     },
     fullscreenElement: function() {
       return document.FullscreenElement       ||
-             document.webkitFullScreenElement ||
+             document.webkitFullscreenElement ||
              document.mozFullScreenElement    ||
              document.msFullScreenElement;
     },
