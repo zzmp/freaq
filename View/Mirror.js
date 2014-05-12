@@ -15,9 +15,11 @@ define(['./Visualizer', './Min', './Max', '../shim'], function(Visualizer, Min, 
     });
 
     // Register listener for freaqy fullscreen change
+    var setMax = maximize.bind(this);
+    var setMin = minimize.bind(this);
     ux.on('change', function(ctx, obj) {
       if (obj.p === 'fullscreen') {
-        obj.n ? maximize.bind(this) : minimize.bind(this);
+        obj.n ? setMax() : setMax();
       }
     });
   };
