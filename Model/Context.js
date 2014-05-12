@@ -1,5 +1,6 @@
 define(['../node_modules/pown/pown', '../shim'], function(pown, shim) {
   var Context = function(mediaElement) {
+    this.mediaElement = mediaElement;
     // Set up audio context
     var context     = new shim.AudioContext();
     var source      = this.set('source',
@@ -67,6 +68,11 @@ define(['../node_modules/pown/pown', '../shim'], function(pown, shim) {
   };
 
   Context.prototype = Object.create(pown);
+
+  // Expose forced play
+  Context.prototype.play = function() {
+    this.mediaElement.play();
+  };
 
   return Context;
 });
