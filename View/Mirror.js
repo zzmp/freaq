@@ -1,5 +1,6 @@
 define(['./Visualizer', './Min', './Max', '../shim'], function(Visualizer, Min, Max, shim) {
   var Mirror = function(context, ux) {
+    this.context = context;
     var vis = this.visualizer = new Visualizer(context, ux);
     var max = this.max = new Max(ux);
     var min = this.min = new Min(ux);
@@ -19,21 +20,36 @@ define(['./Visualizer', './Min', './Max', '../shim'], function(Visualizer, Min, 
     var setMin = minimize.bind(this);
     ux.on('change', function(ctx, obj) {
       if (obj.p === 'fullscreen') {
-        obj.n ? setMax() : setMax();
+        obj.n ? setMax() : setMin();
       }
+    });
+
+    // Register listener for fullscreenchange
+    shim.onfullscreenchange(function() {
+      if (!shim.fullscreenElement()) ux.set('fullscreen', false);
     });
   };
 
   var maximize = function() {
-    var el = this.visualizer.el;
+    var visualizer = this.visualizer;
+    // Cache isPaused
+    var isPaused = visualizer.isPaused;
+    var el = visualizer.el;
     this.min.detach(el);
     this.max.attach(el);
+    // Return to cached state
+    isPaused || this.context.play();
   };
 
   var minimize = function() {
-    var el = this.get('visualizer').el;
+    var visualizer = this.visualizer;
+    // Cache isPaused
+    var isPaused = visualizer.isPaused;
+    var el = visualizer.el;
     this.max.detach(el);
     this.min.attach(el);
+    // Return to cached state
+    isPaused || this.context.play();
   };
 
   return Mirror;
