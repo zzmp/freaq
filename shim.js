@@ -31,10 +31,10 @@ define(function () {
              document.msFullScreenElement;
     },
     onfullscreenchange: function (callback, useCapture) {
-      this.addEventListener('fullscreenchange', callback, useCapture);
-      this.addEventListener('webkitfullscreenchange', callback, useCapture);
-      this.addEventListener('mozfullscreenchange', callback, useCapture);
-      this.addEventListener('msfullscreenchange', callback, useCapture);
+      document.addEventListener('fullscreenchange', callback, useCapture);
+      document.addEventListener('webkitfullscreenchange', callback, useCapture);
+      document.addEventListener('mozfullscreenchange', callback, useCapture);
+      document.addEventListener('msfullscreenchange', callback, useCapture);
     }
   };
 });
