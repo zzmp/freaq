@@ -23,7 +23,7 @@ define(['../node_modules/pown/pown'], function(pown) {
               break;
             case 'fft': // 32 <= val <= 2048
               if (n < 32 || n > 2048) return;
-              if ( n | (n - 1) ) return;
+              if ( n & (n - 1) ) return;
               break;
             case 'loFreq':
             case 'hiFreq':

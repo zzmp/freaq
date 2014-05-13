@@ -52,7 +52,7 @@ define(['../shim'],function(shim) {
       var percent = val / 256; // 2^8 == byte
       var height = cHeight * percent;
       var offset = cHeight - height - 1;
-      if (rainbow === -1) this.ux.set('hue', hue + 1); // UX
+      if (rainbow === -1) hue = this.ux.set('hue', hue + 1); // UX
       draw.fillStyle = 'hsl(' + hue + ', 100%, 50%)';
       draw.clearRect(i * width, 0, width, cHeight);
       draw.fillRect(i * width, offset, width, 2);
