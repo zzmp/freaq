@@ -1,0 +1,6 @@
+markdown: redcarpet
+pygments: true
+
+title_tag_text: freaq, an audio visualizer bookmarklet
+
+exclude: ["README.md", "package.json", "CNAME", "node_modules"]

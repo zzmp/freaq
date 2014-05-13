@@ -1,0 +1,12 @@
+a.bookmarklet {
+  font-size: 2em;
+  border-radius: 2em;
+  background-color: #0074d9;;
+  color: white;
+  text-align: center;
+  display: block;
+}
+
+a.bookmarklet:hover {
+  background-color: black;
+}
