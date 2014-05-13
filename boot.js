@@ -6,6 +6,8 @@ define(['Model/Context', 'Model/UX', 'View/Mirror'],
   var ux = new UX(context);
 
   var freaq = new Mirror(context, ux);
+  freaq.context = context;
+  freaq.ux = ux;
   window.freaq = freaq;
 
   freaq.checkMeOut = function() {
