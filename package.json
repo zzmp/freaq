@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/zzmp/freaq",
   "dependencies": {
+    "almond": "^0.2.9",
     "pown": "0.0.0"
   }
 }

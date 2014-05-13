@@ -1,6 +1,6 @@
 ({
   baseUrl: ".",
-  name: "almond",
+  name: "node_modules/almond/almond",
   wrap: true,
   include: ["boot"],
   insertRequire: ["boot"],
